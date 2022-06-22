@@ -1,0 +1,26 @@
+
+
+.nav1{
+    height: 8.5vh;
+    width: 100%;
+    background-color: #1B2430;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    color: aliceblue;
+    padding-left: 1rem;
+    /* padding-top: 1rem; */
+    
+    
+}
+.moviego1{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-right: 4rem;
+}
+.navItem1{
+    margin-right: 1.5rem;
+    padding-top: 0.4rem;
+    font-size: 1.3rem;
+    color: #D3D6DA;
+}

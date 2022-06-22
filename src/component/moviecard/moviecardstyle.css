@@ -1,0 +1,100 @@
+.column {
+
+    float: left;
+    width: 14.6%;
+    padding: 15px;
+    height: 38vh;
+  }
+  
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .card {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  #image{
+      height: 83%;
+      width: 100%;
+  }
+
+  button {
+    display: inline-block;
+    background-color: #425265;
+    color: aliceblue;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    width: 100%;
+    padding: 9px;
+    transition: all 0.5s;
+    height: 15%;
+    cursor: pointer;
+  }
+  button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  button:hover {
+    background-color: #425265;
+  }
+  button:hover span {
+    padding-right: 20px;
+    
+  }
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+    padding-top: 2px;
+  }
+
+#addImgDiv{
+    position: absolute;
+    right: -6%;
+    top : -5%;
+    height : 15%;
+    width: 18%;
+    background-color: #425265;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#addImg{
+    height : 50%;
+    width: 50%;
+    margin-top: 8px;
+
+}
+
+.explore_title{
+  padding-top: 2px;
+  font-size: 13px;
+}

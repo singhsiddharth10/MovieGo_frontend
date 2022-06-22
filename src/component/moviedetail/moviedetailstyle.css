@@ -1,0 +1,115 @@
+.mainContainer {
+  height: 91.5vh;
+  width: 100%;
+  background-color: #0f171e;
+  display: flex;
+}
+.headerPanel {
+  width: 30%;
+  padding: 2rem;
+}
+#bgImg {
+    height: 91.5vh;
+  width: 100%;
+  opacity: 0.5;
+}
+.image {
+  width: 70%;
+}
+
+.movie_watch {
+  font-size: 2rem;
+  padding: 1rem;
+  position: absolute;
+  display:flex ;
+}
+
+.movietitle {
+  font-size: 3rem;
+  color: aliceblue;
+  font-family: "Times New Roman";
+  margin-right: 1rem;
+}
+.detailContainer {
+  position: absolute;
+  margin-top: 4rem;
+  width: 60%;
+  z-index: 1;
+}
+
+.detail {
+  display: flex;
+  padding: 1rem;
+  color: aliceblue;
+}
+
+.squareBox {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  border: 1px solid aliceblue;
+}
+
+.normal {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.des {
+  width: 100%;
+  color: aliceblue;
+  padding-left: 1rem;
+  word-spacing: 6px;
+  font-size: 17px;
+  font-weight: 520;
+  padding: 1rem;
+}
+
+.btnDiv {
+  display: flex;
+  width: 37%;
+  margin-top: 2rem;
+  padding-left: 1rem;
+}
+
+.btn {
+  font-size: 12px;
+  background-color: #425265;
+  border: 1px solid #425265;
+  border-radius: 0.2rem;
+}
+
+.btn1 {
+  width: 20%;
+  background-color: #425265;
+  border: 1px solid #425265;
+  border-radius: 50%;
+}
+
+.castDetail {
+  padding-left: 1rem;
+  margin-top: 2rem;
+
+}
+
+.crewDetail {
+  display: flex;
+  color: aliceblue;
+  font-size: 16px;
+}
+
+.rightSpace {
+  margin-right: 2rem;
+  width: 15%;
+
+}
+
+.chatDiv{
+    width: 70%;
+    height: 70vh;
+    background-color: #1B2430;
+    text-align: center;
+    color: aliceblue;
+}

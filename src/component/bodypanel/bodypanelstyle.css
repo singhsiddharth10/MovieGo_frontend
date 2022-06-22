@@ -1,0 +1,11 @@
+.parent{
+    height: 91.5vh;
+    background-color: #0F171E;
+}
+.heading_title{
+    color: aliceblue;
+    height: 1.5rem;
+    margin-left: 1rem;
+    padding-top: 1rem;
+    font-size: 20px;
+}
