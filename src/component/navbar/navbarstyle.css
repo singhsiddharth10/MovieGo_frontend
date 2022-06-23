@@ -8,7 +8,7 @@
     justify-content:left;
     align-items: center;
     color: aliceblue;
-    padding-left: 1rem;
+    padding-left: 3rem;
     /* padding-top: 1rem; */
     
     
@@ -23,4 +23,5 @@
     padding-top: 0.4rem;
     font-size: 1.3rem;
     color: #D3D6DA;
+    font-weight: 600;
 }

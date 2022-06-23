@@ -1,75 +1,103 @@
 import { useEffect, useState } from "react";
 import "./chatmodelstyle.css";
-export default function ChatModel() {
-  const data = [
-    {
-      movie_id: 1,
-      user_id: 1,
-      message: "h1",
-      time: "2022-06-21 16:48:00",
-    },
-    {
-      movie_id: 1,
-      user_id: 2,
-      message: "h2",
-      time: "2022-06-21 16:49:00",
-    },
-    {
-      movie_id: 1,
-      user_id: 1,
-      message: "h3",
-      time: "2022-06-21 16:50:00",
-    },
-    {
-      movie_id: 1,
-      user_id: 2,
-      message: "h4",
-      time: "2022-06-21 16:51:00",
-    },
-  ]
-  const [message,setMessage]  = useState('')
-  const [messageData , setMessageData] = useState([])
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMessageList } from "../store/action/fetchMessageListAction";
+export default function ChatModel(props) {
+  console.log("props",props);
+  const dispatch = useDispatch();
+  const fetchMessage = () => {
+    const data = [
+      {
+        movie_id: 1,
+        user_id: 1,
+        message: "h1",
+        time: "2022-06-21 16:48:00",
+      },
+      {
+        movie_id: 1,
+        user_id: 2,
+        message: "h2",
+        time: "2022-06-21 16:49:00",
+      },
+      {
+        movie_id: 1,
+        user_id: 1,
+        message: "h3",
+        time: "2022-06-21 16:50:00",
+      },
+      {
+        movie_id: 1,
+        user_id: 2,
+        message: "h4",
+        time: "2022-06-21 16:51:00",
+      },
+    ];
+    dispatch(fetchMessageList(data));
+  };
 
-  useEffect(()=>{
-    setMessageData(data)
-    console.log(messageData)
-  },[])
-//   const getInputValue = (event) => {
-//     // const userValue = event.target.value;
-//     setMessage({...message, message : event.target.value})
+  const [message, setMessage] = useState("");
 
-//     // console.log(userValue);
-//     console.log(message)
-//   }
+  useEffect(() => {
+    fetchMessage();
+  }, [])
+
+  const messageList = useSelector(
+    (state) => state.chatmessageReducer.messageList
+  );
+  console.log("messageList",messageList)
+
 
   const handleClick = () => {
-    setMessageData([
-        ...messageData,
-        {
-            movie_id: 1,
-            user_id: 1,
-            message: message,
-        }
-    ])
-    console.log(messageData)
-  }
-  
+    var tempData = [{ movie_id: 1, user_id: 1, message: message }];
+    dispatch(fetchMessageList([...messageList, ...tempData]));
+    setMessage("");
+  };
+
+
   return (
     <>
-      <div className="chatheader"> K.G.F Chapter 2 Room</div>
+      <div className="chatheader">
+        <div className="chatheadertitle">K.G.F Chapter 2 Room</div>
+        <div
+          className="closeIcon"
+          onClick={() => props.setShowChatScreen(false)}
+        >
+          <FontAwesomeIcon icon={faXmark} color="aliceblue" />
+        </div>
+      </div>
       <div className="chatbody">
-        {messageData &&
-          messageData.map((index) => {
+        {messageList &&
+          messageList.map((index) => {
             if (index.user_id === 1) {
-              return <div className="chatMessage"> <p className="right_message"> {index.message}</p> </div>
+              return (
+                <>
+                  <p className="right_message">
+                    <p className="username">sid</p>
+                    {index.message}
+                  </p>{" "}
+                </>
+              );
             } else {
-              return <div className="chatMessage"><div className="left_message"> {index.message}</div></div>
+              return (
+                <>
+                  <div className="left_message"> {index.message}</div>
+                </>
+              );
             }
           })}
       </div>
       <div className="footer">
-        <input className="inputtext" value={message} type="text" onChange={e => setMessage(e.target.value)} />
-        <button className="sendbtn" onClick={handleClick}>send</button>
+        <input
+          className="inputtext"
+          value={message}
+          type="text"
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button className="sendbtn" onClick={handleClick}>
+          Send
+        </button>
       </div>
     </>
   );

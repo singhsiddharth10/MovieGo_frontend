@@ -33,7 +33,6 @@ export default function MovieDetails() {
 
   const movieData = useSelector((state) => state.watchListReducer.watchlist);
 
-  console.log("movieData", movieData);
   var present = false;
   movieData.map((index) => {
     if (index.id === id) {
@@ -112,9 +111,9 @@ export default function MovieDetails() {
           <div className="detailContainer">
             <div className="detail">
               <div className="squareBox">IMDb </div>
-              <div className="normal">{rating} </div>
+              <div className="normal" style ={{marginLeft : "0.5rem"}}>{rating}  </div>
               <div className="normal">{duration} </div>
-              <div className="normal"> {releaseYear}</div>
+              <div className="normal" style={{marginRight : "0.5rem"}}> {releaseYear}</div>
               <div className="squareBox">{ageLimit} </div>
             </div>
             <div className="des">{des}</div>
@@ -176,7 +175,7 @@ export default function MovieDetails() {
             id = "chatParentDiv"
           >
             <div className="chatDiv" id = "chatChildDiv" >
-              <ChatModel></ChatModel>
+              <ChatModel showChatScreen = {showChatScreen} setShowChatScreen={setShowChatScreen}></ChatModel>
             </div>
           </div>
         )}
