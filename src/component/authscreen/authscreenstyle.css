@@ -1,0 +1,71 @@
+.parentContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position : absolute;
+    top : 0;
+    left : 0;
+    background-color: #0f171e;
+
+}
+.childContainer{
+    width: 30%;
+    height: 60vh;
+    background-color: #1B2430;
+    text-align: center;
+    color: aliceblue;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.authContainer{
+    height: 45vh;
+    width: 100%;
+
+}
+.authHeader{
+    margin-bottom: 1rem;
+    font-size: 22px;
+}
+
+.inputtextAuth{
+    width: 81%;
+    margin: 0.5rem;
+    height: 5.4vh;
+    padding-left: 1rem;
+    font-size: 15px;
+    border-radius: 8px;
+    border: azure;
+}
+.loginbtn{
+    height: 6vh;
+    margin-top: 1.5rem;
+    width: 85%;
+    font-size: 15px;
+    background-color: #0f171e;
+    border-radius: 8px;
+    border: #0f171e;
+
+}
+.authfooter{
+    display: flex;
+    align-items: center; 
+    justify-content: start;
+    margin-left: 2.2rem;
+    margin-top: 2rem;
+
+}
+.footerText{
+    font-size: 15px;
+}
+.Regsiter{
+    font-size: 17px;
+    margin-left: 0.6rem;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+
+}

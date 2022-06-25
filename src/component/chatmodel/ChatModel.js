@@ -5,7 +5,6 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMessageList } from "../store/action/fetchMessageListAction";
 export default function ChatModel(props) {
-  console.log("props",props);
   const dispatch = useDispatch();
   const fetchMessage = () => {
     const data = [

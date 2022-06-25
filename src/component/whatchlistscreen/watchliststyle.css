@@ -2,12 +2,12 @@
     height: 91.5vh;
     width: 100%;
     background-color: #0f171e;
+    padding-left: 3rem;
 }
 
 .title{
     color: aliceblue;
     height: 1.5rem;
-    margin-left: 1rem;
     padding-top: 1rem;
     font-size: 20px;
 }

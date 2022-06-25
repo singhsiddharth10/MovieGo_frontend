@@ -22,7 +22,7 @@ export default function BodyPanel() {
         genres:'Drama',
         subtiles:'English',
         audioLanguage:'Hindi',
-        imgsrc:''
+        imgsrc:"https://wallpaperaccess.com/full/1317413.jpg"
       },
       {
         id:2,
@@ -37,7 +37,7 @@ export default function BodyPanel() {
         genres:'Drama',
         subtiles:'English',
         audioLanguage:'Hindi',
-        imgsrc:''
+        imgsrc:"https://wallpaperaccess.com/full/1317414.jpg"
       },
       {
         id:3,
@@ -52,7 +52,7 @@ export default function BodyPanel() {
         genres:'Drama',
         subtiles:'English',
         audioLanguage:'Hindi',
-        imgsrc:''
+        imgsrc:"https://wallpaperaccess.com/full/1317415.jpg"
       },
       {
         id:4,
@@ -67,7 +67,7 @@ export default function BodyPanel() {
         genres:'Drama',
         subtiles:'English',
         audioLanguage:'Hindi',
-        imgsrc:''
+        imgsrc:"https://wallpaperaccess.com/full/1317425.jpg"
       },
       {
         id:5,
@@ -82,7 +82,7 @@ export default function BodyPanel() {
         genres:'Drama',
         subtiles:'English',
         audioLanguage:'Hindi',
-        imgsrc:''
+        imgsrc:"https://wallpaperaccess.com/full/1317416.jpg"
       },
       {
         id:6,
@@ -97,7 +97,7 @@ export default function BodyPanel() {
         genres:'Drama',
         subtiles:'English',
         audioLanguage:'Hindi',
-        imgsrc:''
+        imgsrc:"https://wallpaperaccess.com/full/1317417.jpg"
       },
       {
         id:7,
@@ -112,7 +112,7 @@ export default function BodyPanel() {
         genres:'Drama',
         subtiles:'English',
         audioLanguage:'Hindi',
-        imgsrc:''
+        imgsrc:"https://wallpaperaccess.com/full/1317409.jpg"
       },
       {
         id:8,
@@ -127,7 +127,7 @@ export default function BodyPanel() {
         genres:'Drama',
         subtiles:'English',
         audioLanguage:'Hindi',
-        imgsrc:''
+        imgsrc:"https://wallpaperaccess.com/full/1317410.jpg"
       },
     ]
     dispatch(fetchMovieList(data))
