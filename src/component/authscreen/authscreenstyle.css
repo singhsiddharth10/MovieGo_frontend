@@ -69,3 +69,9 @@
     cursor: pointer;
 
 }
+.ivalidCred{
+    color: red;
+    font-size: 12px;
+    text-align: start;
+    padding-left: 2.4rem;
+}
