@@ -14,19 +14,19 @@ export default function MovieDetails() {
   const location = useLocation();
 
   const {
-    id,
-    name,
+    filmId,
+    title,
     rating,
     duration,
     releaseYear,
-    ageLimit,
-    des,
+    ageLimtit,
+    description,
     director,
     staring,
     genres,
-    subtiles,
+    subtitle,
     audioLanguage,
-    imgsrc,
+    imgSrc,
   } = location.state;
 
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ export default function MovieDetails() {
 
   var present = false;
   movieData.map((index) => {
-    if (index.id === id) {
+    if (index.filmId === filmId) {
       present = true;
     }
   });
@@ -46,18 +46,18 @@ export default function MovieDetails() {
     setColor(!color);
     var tempData = [
       {
-        id: id,
-        name: name,
+        filmId: filmId,
+        title: title,
         rating: rating,
         releaseYear: releaseYear,
-        ageLimit: ageLimit,
-        des: des,
+        ageLimtit: ageLimtit,
+        description: description,
         director: director,
         staring: staring,
         genres: genres,
-        subtiles: subtiles,
+        subtitle: subtitle,
         audioLanguage: audioLanguage,
-        imgsrc: imgsrc,
+        imgSrc: imgSrc,
         watchlist: true,
       },
     ];
@@ -68,12 +68,12 @@ export default function MovieDetails() {
     setColor(!color);
     var tempData = [];
     movieData.map((index) => {
-      var movieId = index.id;
+      var movieId = index.filmId;
       var tempData1 = [];
       tempData1.push(index);
 
-      console.log("movieId", movieId, "id", id);
-      if (movieId !== id) {
+      console.log("movieId", movieId, "id", filmId);
+      if (movieId !== filmId) {
         tempData = [...tempData, ...tempData1];
       }
       tempData1.pop();
@@ -95,10 +95,10 @@ export default function MovieDetails() {
       <div className="mainContainer">
         <div className="headerPanel">
           <div className="movie_watch">
-            <div className="movietitle">{name} </div>
+            <div className="movietitle">{title} </div>
             <div
               style={{ paddingTop: "0.3rem" }}
-              onClick={color === false ? addMovie : () => removieMovie(id)}
+              onClick={color === false ? addMovie : () => removieMovie(filmId)}
             >
               {color === false ? (
                 <FontAwesomeIcon icon={regular} color="#ffd700" />
@@ -114,20 +114,20 @@ export default function MovieDetails() {
               <div className="normal" style ={{marginLeft : "0.5rem"}}>{rating}  </div>
               <div className="normal">{duration} </div>
               <div className="normal" style={{marginRight : "0.5rem"}}> {releaseYear}</div>
-              <div className="squareBox">{ageLimit} </div>
+              <div className="squareBox">{ageLimtit} </div>
             </div>
-            <div className="des">{des}</div>
+            <div className="des">{description}</div>
 
             <div className="btnDiv">
               <button className="btn" style={{ marginRight: "10%" }}>
-                Watch Trailer
+                <p style ={{fontSize : "13px"}}>Watch Trailer</p>
               </button>
               <button
-                className="btn"
+                className="btn" 
                 style={{ marginRight: "10%" }}
                 onClick={() => setShowChatScreen((prev) => !prev)}
               >
-                Start Chat
+                <p style ={{fontSize : "13px"}}>Start Chat</p>
               </button>
             </div>
             <div className="castDetail">
@@ -145,7 +145,7 @@ export default function MovieDetails() {
               </div>
               <div className="crewDetail">
                 <div className="rightSpace">Subtiles</div>
-                <div>{subtiles}</div>
+                <div>{subtitle}</div>
               </div>
               <div className="crewDetail">
                 <div className="rightSpace">Audio Language</div>
@@ -156,7 +156,7 @@ export default function MovieDetails() {
         </div>
 
         <div className="image">
-          <img src={kgfBg} id="bgImg" />
+          <img src={imgSrc} id="bgImg" />
         </div>
         <div></div>
         {showChatScreen && (
@@ -175,7 +175,7 @@ export default function MovieDetails() {
             id = "chatParentDiv"
           >
             <div className="chatDiv" id = "chatChildDiv" >
-              <ChatModel showChatScreen = {showChatScreen} setShowChatScreen={setShowChatScreen}></ChatModel>
+              <ChatModel showChatScreen = {showChatScreen} setShowChatScreen={setShowChatScreen} filmId = {filmId}></ChatModel>
             </div>
           </div>
         )}

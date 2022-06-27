@@ -4,39 +4,35 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMessageList } from "../store/action/fetchMessageListAction";
+import axios from "axios";
 export default function ChatModel(props) {
   const dispatch = useDispatch();
-  const fetchMessage = () => {
-    const data = [
-      {
-        movie_id: 1,
-        user_id: 1,
-        message: "h1",
-        time: "2022-06-21 16:48:00",
-      },
-      {
-        movie_id: 1,
-        user_id: 2,
-        message: "h2",
-        time: "2022-06-21 16:49:00",
-      },
-      {
-        movie_id: 1,
-        user_id: 1,
-        message: "h3",
-        time: "2022-06-21 16:50:00",
-      },
-      {
-        movie_id: 1,
-        user_id: 2,
-        message: "h4",
-        time: "2022-06-21 16:51:00",
-      },
-    ];
-    dispatch(fetchMessageList(data));
+  const [message, setMessage] = useState("");
+
+  const fetchMessage = async() => {
+    const param = `movieId=${props.filmId}`
+    await axios({
+      method: "post",
+      url: `http://localhost:8080/MovieGo/Message`,
+      data : param
+
+    })
+      .then(function (response) {
+        if (response.data.length > 0) {
+          dispatch(fetchMessageList(response.data));
+          console.log("esponse.data",response.data)
+          
+        } else {
+         
+        }
+      })
+      .catch(function (response) {
+        console.log(response);
+      });
+
   };
 
-  const [message, setMessage] = useState("");
+  
 
   useEffect(() => {
     fetchMessage();
@@ -48,10 +44,30 @@ export default function ChatModel(props) {
   console.log("messageList",messageList)
 
 
-  const handleClick = () => {
-    var tempData = [{ movie_id: 1, user_id: 1, message: message }];
+  const handleClick = async() => {
+    const param = `movieDetail=${props.filmId}&userDetail=${1}&message=${message}`
+    var tempData = [{ movieDetail: 1, userDetail: 1, message: message }];
     dispatch(fetchMessageList([...messageList, ...tempData]));
     setMessage("");
+    await axios({
+      method: "post",
+      url: `http://localhost:8080/MovieGo/AddMessage`,
+      data : param
+
+    })
+      .then(function (response) {
+        if (response.data.length > 0) {
+
+          
+        } else {
+         
+        }
+      })
+      .catch(function (response) {
+        console.log(response);
+      });
+    
+   
   };
 
 
@@ -69,7 +85,7 @@ export default function ChatModel(props) {
       <div className="chatbody">
         {messageList &&
           messageList.map((index) => {
-            if (index.user_id === 1) {
+            if (index.userDetail === 1) {
               return (
                 <>
                   <p className="right_message">

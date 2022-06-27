@@ -39,13 +39,11 @@
 
   button {
     display: inline-block;
-    background-color: #425265;
     color: aliceblue;
     text-align: center;
     font-size: 10px;
     font-weight: 600;
     width: 100%;
-    padding: 9px;
     transition: all 0.5s;
     height: 15%;
     cursor: pointer;

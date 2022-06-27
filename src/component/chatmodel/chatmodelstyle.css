@@ -38,6 +38,7 @@
     margin-left: auto ;
     font-size: 15px;
     border-radius: 0.6rem;
+    margin-top: 1rem;
 }
 .left_message{
     color : aliceblue;
@@ -46,6 +47,8 @@
     background-color:#072664;
     border-radius: 0.6rem;
     width: fit-content;
+    margin-top: 1rem;
+    
 
 }
 .footer{

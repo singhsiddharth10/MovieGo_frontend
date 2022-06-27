@@ -11,6 +11,11 @@ export default function Navbar() {
   const goToWatchlist = () => {
     navigate("/WatchlistScreen");
   };
+
+  const handleLogout = () => {
+    navigate("/")
+  }
+  
   return (
     <div className="nav1">
       <div className="moviego1" onClick={goToHome}>
@@ -19,8 +24,16 @@ export default function Navbar() {
       <div className="navItem1" onClick={goToHome}>
         Home
       </div>
-      <div className="navItem1" onClick={goToWatchlist}>
-        Watchlist
+      <div className="navbaritempos">
+        <div className="navItem1" onClick={goToWatchlist}>
+          Watchlist
+        </div>
+        <div
+          className="navItem1"
+          onClick={handleLogout}
+        >
+          Logout
+        </div>
       </div>
     </div>
   );

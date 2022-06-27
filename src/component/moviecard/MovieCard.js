@@ -8,8 +8,8 @@ export default function MovieCard(props) {
   return (
     <div className="column">
       <div className="card">
-        <img src={props.data.imgsrc} id="image"></img>
-        <button onClick={()=> navigate("/MovieDetails",{state :  props.data})}>
+        <img src={props.data.imgSrc} id="image"></img>
+        <button style={{backgroundColor : "#1B2430", border : "0px"}} onClick={()=> navigate("/MovieDetails",{state :  props.data})}>
           <span className='explore_title'>Explore</span>
         </button>
       </div>

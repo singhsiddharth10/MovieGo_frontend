@@ -25,3 +25,8 @@
     color: #D3D6DA;
     font-weight: 600;
 }
+.navbaritempos{
+    display: flex;
+    justify-content: space-between;
+    width: 76%;
+}
