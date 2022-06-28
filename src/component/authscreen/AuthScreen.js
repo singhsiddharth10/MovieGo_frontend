@@ -8,17 +8,20 @@ export default function AuthScreen() {
   const [btnText, setBtnText] = useState("Login");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [invalidLogin, setInvalidLogin] = useState(false);
   const [invalidRegister, setInvalidRegister] = useState(false);
 
   const handleFooterClick = () => {
     setBtn(false);
     setBtnText("Register");
-    
+    setUserName("")
+    setPassword("")
+    setEmail("")
   };
   const handleBtnClick = async () => {
-    const formdata = `email=${userName}&password=${password}`;
     if (btn) {
+      const formdata = `userId=${userName}&password=${password}`;
       await axios({
         method: "post",
         url: `http://localhost:8080/MovieGo/CheckUser`,
@@ -27,7 +30,7 @@ export default function AuthScreen() {
         .then(function (response) {
           if (response.data === "success") {
             setInvalidLogin(false);
-            navigate("/MainScreen");
+            navigate("/MainScreen",{state : userName});
           } else {
             setInvalidLogin(true);
           }
@@ -36,6 +39,7 @@ export default function AuthScreen() {
           console.log(response);
         });
     } else {
+      const formdata = `userId=${userName}&email=${email}&password=${password}`;
       await axios({
         method: "post",
         url: `http://localhost:8080/MovieGo/RegisterUser`,
@@ -78,6 +82,16 @@ export default function AuthScreen() {
               type="text"
               onChange={(e) => setUserName(e.target.value)}
             />
+            {btn === false ?
+            <input
+              className="inputtextAuth"
+              s
+              placeholder="email"
+              value={email}
+              type="text"
+              onChange={(e) => setEmail(e.target.value)}
+            /> : null
+            }
             <input
               className="inputtextAuth"
               placeholder="Password"

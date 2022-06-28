@@ -21,10 +21,7 @@ export default function ChatModel(props) {
         if (response.data.length > 0) {
           dispatch(fetchMessageList(response.data));
           console.log("esponse.data",response.data)
-          
-        } else {
-         
-        }
+        } 
       })
       .catch(function (response) {
         console.log(response);
@@ -41,12 +38,11 @@ export default function ChatModel(props) {
   const messageList = useSelector(
     (state) => state.chatmessageReducer.messageList
   );
-  console.log("messageList",messageList)
 
 
   const handleClick = async() => {
-    const param = `movieDetail=${props.filmId}&userDetail=${1}&message=${message}`
-    var tempData = [{ movieDetail: 1, userDetail: 1, message: message }];
+    const param = `filmId=${props.filmId}&userId=${props.userName}&message=${message}`
+    var tempData = [{ movieDetail: props.filmId, userId: props.userName, message: message }];
     dispatch(fetchMessageList([...messageList, ...tempData]));
     setMessage("");
     await axios({
@@ -56,12 +52,9 @@ export default function ChatModel(props) {
 
     })
       .then(function (response) {
-        if (response.data.length > 0) {
-
-          
-        } else {
-         
-        }
+        if (response.data === "success") {
+            console.log("message aaded")
+        } 
       })
       .catch(function (response) {
         console.log(response);
@@ -85,11 +78,11 @@ export default function ChatModel(props) {
       <div className="chatbody">
         {messageList &&
           messageList.map((index) => {
-            if (index.userDetail === 1) {
+            if (index.userId === props.userName) {
               return (
                 <>
                   <p className="right_message">
-                    <p className="username">sid</p>
+                    <p className="username">{props.userName}</p>
                     {index.message}
                   </p>{" "}
                 </>

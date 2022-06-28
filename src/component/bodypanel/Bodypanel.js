@@ -5,8 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import {fetchMovieList} from '../store/action/fetchMovieListAction'
 import axios from "axios";
 
-export default function BodyPanel() {
+export default function BodyPanel(props) {
   const dispatch = useDispatch()
+
+  console.log("BodyPanel", props.userName)
 
   const fetchData = async () => {
     await axios({
@@ -49,7 +51,7 @@ export default function BodyPanel() {
       
           {movieData && movieData.map(index => {
             return (
-            <MovieCard key = {index.id} data = {index}></MovieCard>
+            <MovieCard key = {index.id} data = {index} userName = {props.userName}></MovieCard>
           ) })}
 
     </div>

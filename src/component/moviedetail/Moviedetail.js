@@ -12,6 +12,7 @@ import ChatModel from "../chatmodel/ChatModel";
 
 export default function MovieDetails() {
   const location = useLocation();
+  console.log("location.state",location.state)
 
   const {
     filmId,
@@ -27,7 +28,9 @@ export default function MovieDetails() {
     subtitle,
     audioLanguage,
     imgSrc,
-  } = location.state;
+  } = location.state.data;
+
+ 
 
   const dispatch = useDispatch();
 
@@ -175,7 +178,7 @@ export default function MovieDetails() {
             id = "chatParentDiv"
           >
             <div className="chatDiv" id = "chatChildDiv" >
-              <ChatModel showChatScreen = {showChatScreen} setShowChatScreen={setShowChatScreen} filmId = {filmId}></ChatModel>
+              <ChatModel showChatScreen = {showChatScreen} setShowChatScreen={setShowChatScreen} filmId = {filmId} userName = {location.state.userName}></ChatModel>
             </div>
           </div>
         )}
